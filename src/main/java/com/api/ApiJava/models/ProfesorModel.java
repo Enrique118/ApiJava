@@ -4,37 +4,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Profesor")
+@Table(name = "profesor")
 public class ProfesorModel {
 
-   
-    @JsonProperty("Cedula")
-    @Column(name = "Cedula", nullable = false, length = 100)
-    private String cedula;
+    @Id
+    @JsonProperty("cedula")
+    @Column(name = "cedula", nullable = false, length = 100)
+    private int cedula;
 
-    @JsonProperty("Nombre")
-    @Column(name = "Nombre", nullable = false, length = 100)
+    @JsonProperty("nombre")
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @JsonProperty("Correo")
-    @Column(name = "Correo", nullable = false, length = 100)
+    @JsonProperty("correo")
+    @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
-    @JsonProperty("noTelefono")
-    @Column(name = "noTelefono", length = 15)
+    @JsonProperty("telefono")
+    @Column(name = "telefono", length = 15)
     private String noTelefono;
 
     // Getters y setters
     
 
-    public String getCedula() {
+    public int getCedula() {
         return this.cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 

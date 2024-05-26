@@ -13,7 +13,7 @@ CREATE TABLE ALUMNO (
 
 -- Tabla de PROFESOR
 CREATE TABLE PROFESOR (
-    cedula VARCHAR(20) PRIMARY KEY,
+    cedula INT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     telefono VARCHAR(15)
@@ -42,7 +42,7 @@ CREATE TABLE CURSO (
     cupo INT,
     duracion VARCHAR(50),
     id_temario INT,
-    id_profesor VARCHAR(20),
+    id_profesor INT,
     costo DECIMAL(10, 2),
     id_categoria INT,
     FOREIGN KEY (id_temario) REFERENCES TEMARIO(id),
