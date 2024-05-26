@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.ApiJava.models.Temario;
+import com.api.ApiJava.models.TemarioModel;
 import com.api.ApiJava.services.TemarioService;
 
 @RestController
@@ -24,22 +24,22 @@ public class TemarioController {
     private TemarioService temarioService;
 
     @GetMapping
-    public ArrayList<Temario> getAllTemarios() {
+    public ArrayList<TemarioModel> getAllTemarios() {
         return this.temarioService.getAllTemarios();
     }
 
     @PostMapping
-    public Temario saveTemario(@RequestBody Temario temario) {
+    public TemarioModel saveTemario(@RequestBody TemarioModel temario) {
         return this.temarioService.saveTemario(temario);
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Temario> getTemarioById(@PathVariable("id") Long id) {
+    public Optional<TemarioModel> getTemarioById(@PathVariable("id") Long id) {
         return this.temarioService.getTemarioById(id);
     }
 
     @PutMapping(path = "/{id}")
-    public Temario updateTemarioById(@RequestBody Temario request, @PathVariable("id") Long id) {
+    public TemarioModel updateTemarioById(@RequestBody TemarioModel request, @PathVariable("id") Long id) {
         return this.temarioService.updateTemarioById(request, id);
     }
 

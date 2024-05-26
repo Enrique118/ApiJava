@@ -27,15 +27,15 @@ public class ProfesorService {
 
     }
 
-    public Optional<ProfesorModel> getById(Long id){
+    public Optional<ProfesorModel> getById(Long cedula){
 
-        return ProfesorRepository.findById(id);
+        return ProfesorRepository.findById(cedula);
 
     }
 
-    public ProfesorModel updateById(ProfesorModel request, Long id){
+    public ProfesorModel updateById(ProfesorModel request, Long cedula){
 
-        ProfesorModel profesor = ProfesorRepository.findById(id).get();
+        ProfesorModel profesor = ProfesorRepository.findById(cedula).get();
 
         profesor.setCedula(request.getCedula());
         profesor.setNombre(request.getNombre());
@@ -47,11 +47,11 @@ public class ProfesorService {
 
     }
 
-    public Boolean deleteProfesor(Long id){
+    public Boolean deleteProfesor(Long cedula){
 
         try {
             
-            ProfesorRepository.deleteById(id);
+            ProfesorRepository.deleteById(cedula);
             return true;
 
         } catch (Exception e) {

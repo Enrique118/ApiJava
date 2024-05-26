@@ -17,7 +17,7 @@ import com.api.ApiJava.models.ProfesorModel;
 import com.api.ApiJava.services.ProfesorService;
 
 @RestController
-@RequestMapping("/Profesor")
+@RequestMapping("/profesor")
 public class ProfesorController {
 
     @Autowired
@@ -38,28 +38,28 @@ public class ProfesorController {
 
     }
 
-    @GetMapping(path = "/{id}")
-    public Optional<ProfesorModel> getAlumnoById(@PathVariable("id") Long id){
+    @GetMapping(path = "/{cedula}")
+    public Optional<ProfesorModel> getProfesorById(@PathVariable("cedula") Long cedula){
 
-        return this.profesorService.getById(id);
-
-    }
-
-    @PutMapping(path = "{id}")
-    public ProfesorModel updateProfesorById(@RequestBody ProfesorModel request, @PathVariable Long id){
-
-        return this.profesorService.updateById(request, id);
+        return this.profesorService.getById(cedula);
 
     }
 
-    @DeleteMapping(path = "/{id}")
-    public String deleteProfesorById(@PathVariable("id") Long id){
+    @PutMapping(path = "{cedula}")
+    public ProfesorModel updateProfesorById(@RequestBody ProfesorModel request, @PathVariable Long cedula){
 
-        boolean ok = this.profesorService.deleteProfesor(id);
+        return this.profesorService.updateById(request, cedula);
+
+    }
+
+    @DeleteMapping(path = "/{cedula}")
+    public String deleteProfesorById(@PathVariable("cedula") Long cedula){
+
+        boolean ok = this.profesorService.deleteProfesor(cedula);
 
         if (ok) {
             
-            return "El profesor con el id: " + id + "se elimin'o correctamente";
+            return "El profesor con el id: " + cedula + "se elimin'o correctamente";
 
         } else {
             

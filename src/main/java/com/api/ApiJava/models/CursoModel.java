@@ -1,5 +1,7 @@
 package com.api.ApiJava.models;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,36 +16,36 @@ public class CursoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @JsonProperty("Nombre")
-    @Column(name = "Nombre", nullable = false, length = 100)
+    @JsonProperty("nombre")
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @JsonProperty("Horario")
-    @Column(name = "Horario", length = 50)
+    @JsonProperty("horario")
+    @Column(name = "horario", length = 50)
     private String horario;
 
-    @JsonProperty("Cupo")
-    @Column(name = "Cupo")
-    private Integer cupo;
+    @JsonProperty("cupo")
+    @Column(name = "cupo")
+    private int cupo;
 
-    @JsonProperty("Duracion")
-    @Column(name = "Duracion", length = 50)
+    @JsonProperty("duracion")
+    @Column(name = "duracion", length = 50)
     private String duracion;
 
     @JsonProperty("idTemario")
     @Column(name = "idTemario")
-    private Integer idTemario;
+    private int idTemario;
 
     @JsonProperty("idProfesor")
     @Column(name = "idProfesor", length = 20)
     private String idProfesor;
 
-    @JsonProperty("Costo")
-    @Column(name = "Costo", precision = 10, scale = 2)
-    private Double costo;
+    @JsonProperty("costo")
+    @Column(name = "costo", precision = 10, scale = 2)
+    private BigDecimal costo;
 
     @JsonProperty("idCategoria")
     @Column(name = "idCategoria")
@@ -107,11 +109,11 @@ public class CursoModel {
         this.idProfesor = idProfesor;
     }
 
-    public Double getCosto() {
+    public BigDecimal getCosto() {
         return this.costo;
     }
 
-    public void setCosto(Double costo) {
+    public void setCosto(BigDecimal costo) {
         this.costo = costo;
     }
 

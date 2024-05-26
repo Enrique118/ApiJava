@@ -6,29 +6,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.api.ApiJava.models.Temario;
-import com.api.ApiJava.repositores.TemarioRepository;
+import com.api.ApiJava.models.TemarioModel;
+import com.api.ApiJava.repositores.ITemarioRepository;
 
 @Service
 public class TemarioService {
 
     @Autowired
-    TemarioRepository temarioRepository;
+    ITemarioRepository temarioRepository;
 
-    public ArrayList<Temario> getAllTemarios() {
-        return (ArrayList<Temario>) temarioRepository.findAll();
+    public ArrayList<TemarioModel> getAllTemarios() {
+        return (ArrayList<TemarioModel>) temarioRepository.findAll();
     }
 
-    public Temario saveTemario(Temario temario) {
+    public TemarioModel saveTemario(TemarioModel temario) {
         return temarioRepository.save(temario);
     }
 
-    public Optional<Temario> getTemarioById(Long id) {
+    public Optional<TemarioModel> getTemarioById(Long id) {
         return temarioRepository.findById(id);
     }
 
-    public Temario updateTemarioById(Temario request, Long id) {
-        Temario temario = temarioRepository.findById(id).orElse(null);
+    public TemarioModel updateTemarioById(TemarioModel request, Long id) {
+        TemarioModel temario = temarioRepository.findById(id).orElse(null);
 
         if (temario != null) {
             temario.setAnio(request.getAnio());
