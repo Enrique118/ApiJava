@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página del Curso</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app1.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Curso</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#temario">Temas del Curso</a></li>
+                <li><a href="#profesores">Instructores</a></li>
+                <li><a href="#inscripcion">Inscripción</a></li>
+                <li><a href="alumnos.html">Lista de Alumnos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <p>Página web para inscripciones de cursos en línea.</p>
+        </section>
+
+        <section id="profesores">
+            <h2>Profesores</h2>
+            <div id="profesores-list"></div>
+
+        </section>
+
+        <section id="categoria">
+            <h2>Tabla de Categoría</h2>
+            <table>
+                <!-- Aquí se cargará dinámicamente la tabla de categoría -->
+            </table>
+        </section>
+        
+        <section id="temario">
+            <h2>Temas del Curso</h2>
+            <div id="temario-list"></div>
+        </section>
+
+        <section id="inscripcion">
+            <h2>Inscripción</h2>
+            <form id="inscripcion-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required><br>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required><br>
+                <label for="id_pago">ID Pago:</label>
+                <input type="text" id="id_pago" name="id_pago"><br>
+                <button type="submit">Inscribirse</button>
+            </form>
+        </section>
+
+        <section id="curso">
+            <h2>Tabla de Curso</h2>
+            <table>
+                <!-- Aquí se cargará dinámicamente la tabla de cursos -->
+            </table>
+        </section>
+
+    <script>
+        // Aquí escribirías el código JavaScript para hacer la solicitud a tu backend y cargar los datos en las tablas
+    </script>
+
+</body>
+</html>
