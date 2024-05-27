@@ -29,20 +29,49 @@
 
         <section id="profesores">
             <h2>Profesores</h2>
-            <div id="profesores-list"></div>
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="profesores-list">
+                    <!-- Aquí se cargarán dinámicamente los profesores -->
+                </tbody>
+            </table>
         </section>
 
         <section id="categoria">
             <h2>Tabla de Categoría</h2>
             <table>
-                <!-- Aquí se cargará dinámicamente la tabla de categoría -->
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody id="categoria-list">
+                    <!-- Aquí se cargará dinámicamente la tabla de categoría -->
+                </tbody>
             </table>
         </section>
         
         <section id="temario">
             <h2>Temas del Curso</h2>
-            <div id="temario-list"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Año</th>
+                        <th>Estatus</th>
+                        <th>Temas</th>
+                        <th>Objetivo</th>
+                    </tr>
+                </thead>
+                <tbody id="temario-list">
+                    <!-- Aquí se cargarán dinámicamente los temas del curso -->
+                </tbody>
+            </table>
         </section>
 
         <section id="inscripcion">
@@ -63,13 +92,18 @@
         <section id="curso">
             <h2>Tabla de Curso</h2>
             <table>
-                <!-- Aquí se cargará dinámicamente la tabla de cursos -->
+                <thead>
+                    <tr>
+                        <th>Curso</th>
+                        <th>Descripción</th>
+                        <th>Duración</th>
+                    </tr>
+                </thead>
+                <tbody id="curso-list">
+                    <!-- Aquí se cargará dinámicamente la tabla de cursos -->
+                </tbody>
             </table>
         </section>
-
-    <script>
-        // Aquí escribirías el código JavaScript para hacer la solicitud a tu backend y cargar los datos en las tablas
-    </script>
-
+    </main>
 </body>
 </html>

@@ -9,19 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const row = document.createElement('tr');
 
                     const cellNombre = document.createElement('td');
-                    cellNombre.textContent = alumno.Nombre; // Asegúrate de que coincide con el campo JSON
+                    cellNombre.textContent = alumno.Nombre;
                     row.appendChild(cellNombre);
 
                     const cellCorreo = document.createElement('td');
-                    cellCorreo.textContent = alumno.Correo; // Asegúrate de que coincide con el campo JSON
+                    cellCorreo.textContent = alumno.Correo;
                     row.appendChild(cellCorreo);
 
                     const cellTelefono = document.createElement('td');
-                    cellTelefono.textContent = alumno.noTelefono; // Asegúrate de que coincide con el campo JSON
+                    cellTelefono.textContent = alumno.No_telefono;
                     row.appendChild(cellTelefono);
 
                     const cellIdPago = document.createElement('td');
-                    cellIdPago.textContent = alumno.idPago; // Asegúrate de que coincide con el campo JSON
+                    cellIdPago.textContent = alumno.Id_pago;
                     row.appendChild(cellIdPago);
 
                     alumnosList.appendChild(row);
