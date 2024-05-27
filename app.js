@@ -15,14 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cellCorreo = document.createElement('td');
                     cellCorreo.textContent = alumno.Correo;
                     row.appendChild(cellCorreo);
+                    
+                    const cellIdPago = document.createElement('td');
+                    cellIdPago.textContent = alumno.idPago;
+                    row.appendChild(cellIdPago);
 
                     const cellTelefono = document.createElement('td');
-                    cellTelefono.textContent = alumno.No_telefono;
+                    cellTelefono.textContent = alumno.noTelefono;
                     row.appendChild(cellTelefono);
 
-                    const cellIdPago = document.createElement('td');
-                    cellIdPago.textContent = alumno.Id_pago;
-                    row.appendChild(cellIdPago);
 
                     alumnosList.appendChild(row);
                 });
