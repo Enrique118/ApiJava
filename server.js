@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     host: 'root',
     user: 'root',
     password: 'fca.00',
-    database: 'CursosDB'
+    database: 'cursosdb'
 });
 
 db.connect(err => {
@@ -21,7 +21,7 @@ db.connect(err => {
     console.log('Conectado a la base de datos MySQL');
 });
 
-app.get('/temarios', (req, res) => {
+app.get('/temario', (req, res) => {
     const query = 'SELECT * FROM TEMARIO';
     db.query(query, (err, results) => {
         if (err) throw err;
@@ -29,7 +29,7 @@ app.get('/temarios', (req, res) => {
     });
 });
 
-app.get('/profesores', (req, res) => {
+app.get('/profesor', (req, res) => {
     const query = 'SELECT * FROM PROFESOR';
     db.query(query, (err, results) => {
         if (err) throw err;
@@ -37,7 +37,7 @@ app.get('/profesores', (req, res) => {
     });
 });
 
-app.post('/alumnos', (req, res) => {
+app.post('/alumno', (req, res) => {
     const { nombre, correo, no_telefono, id_pago } = req.body;
     const query = 'INSERT INTO ALUMNO (nombre, correo, no_telefono, id_pago) VALUES (?, ?, ?, ?)';
     db.query(query, [nombre, correo, no_telefono, id_pago], (err, result) => {
@@ -47,7 +47,7 @@ app.post('/alumnos', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:3306`);
+    console.log(`Servidor corriendo en http://localhost:4000`);
 });
 
 

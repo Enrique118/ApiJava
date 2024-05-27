@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inscripcionForm = document.getElementById('inscripcion-form');
 
     function obtenerTemarios() {
-        fetch('http://localhost:3000/temarios')
+        fetch('http://localhost:4000/temario')
             .then(response => response.json())
             .then(data => {
                 data.forEach(temario => {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function obtenerProfesores() {
-        fetch('http://localhost:3000/profesores')
+        fetch('http://localhost:4000/profesor')
             .then(response => response.json())
             .then(data => {
                 data.forEach(profesor => {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id_pago: formData.get('id_pago')
         };
 
-        fetch('http://localhost:3000/alumnos', {
+        fetch('http://localhost:4000/alumno', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
