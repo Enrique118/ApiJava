@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    
     function obtenerProfesores() {
         fetch('http://localhost:4000/profesor')
             .then(response => response.json())
