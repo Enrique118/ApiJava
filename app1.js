@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     div.textContent = `Año: ${temario.anio}, Estatus: ${temario.estatus}, Temas: ${temario.temas}, Objetivo: ${temario.objetivo}`;
                     temarioList.appendChild(div);
                 });
-            });
+            })
+            .catch(error => console.error('Error al obtener temarios:', error));
     }
 
     
@@ -25,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     div.textContent = `Nombre: ${profesor.nombre}, Correo: ${profesor.correo}, Teléfono: ${profesor.telefono}`;
                     profesoresList.appendChild(div);
                 });
-            });
+            })
+            .catch(error => console.error('Error al obtener profesores:', error));
     }
 
     if (inscripcionForm) {
@@ -67,7 +69,44 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Formulario de inscripción no encontrado');
     }
 
+    function obtenerCategorias(){
+
+        fetch('http://localhost:4000/categoria')
+        .then(response => response.json())
+        .then(categorias => {
+            const categoriaList = document.getElementById('categoria-list');
+            categoriaList.innerHTML = categorias.map(categoria => `
+                <tr>
+                    <td>${categoria.nombreCategoria}</td>
+                </tr>
+            `).join('');
+        })
+        .catch(error => console.error('Error al obtener categorías:', error));
+
+    }
+    
+    function obtenerCursos(){
+
+        fetch('http://localhost:4000/curso')
+        .then(response => response.json())
+        .then(cursos => {
+            const cursoList = document.getElementById('curso-list');
+            cursoList.innerHTML = cursos.map(curso => `
+                <tr>
+                    <td>${curso.nombre}</td>
+                    <td>${curso.descripcion}</td>
+                    <td>${curso.duracion}</td>
+                </tr>
+            `).join('');
+        })
+        .catch(error => console.error('Error al obtener cursos:', error));
+
+    }
+
     obtenerTemarios();
     obtenerProfesores();
+    obtenerCategorias();
+    obtenerCursos();
+
 });
 

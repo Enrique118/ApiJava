@@ -37,6 +37,22 @@ app.get('/profesor', (req, res) => {
     });
 });
 
+app.get('/categoria', (req, res) => {
+    const query = 'SELECT * FROM CATEGORIA';
+    db.query(query, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+app.get('/cursos', (req, res) => {
+    const query = 'SELECT * FROM CURSO';
+    db.query(query, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
 app.post('/alumno', (req, res) => {
     const { nombre, correo, no_telefono, id_pago } = req.body;
     const query = 'INSERT INTO ALUMNO (nombre, correo, no_telefono, id_pago) VALUES (?, ?, ?, ?)';
