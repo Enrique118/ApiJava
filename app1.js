@@ -3,31 +3,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const profesoresList = document.getElementById('profesores-list');
     const inscripcionForm = document.getElementById('inscripcion-form');
 
-    function obtenerTemarios() {
+    function obtenerTemarios(){
+
         fetch('http://localhost:4000/temario')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(temario => {
-                    const div = document.createElement('div');
-                    div.textContent = `Año: ${temario.anio}, Estatus: ${temario.estatus}, Temas: ${temario.temas}, Objetivo: ${temario.objetivo}`;
-                    temarioList.appendChild(div);
-                });
-            })
-            .catch(error => console.error('Error al obtener temarios:', error));
+        .then(response => response.json())
+        .then(temarios => {
+            const temarioList = document.getElementById('temario-list');
+            temarioList.innerHTML = temarios.map(temario => `
+                <tr>
+                    <td>${temario.anio}</td>
+                    <td>${temario.estatus}</td>
+                    <th>${temario.temas}</th>
+                    <td>${temario.objetivo}</td>
+                </tr>
+            `).join('');
+        })
+        .catch(error => console.error('Error al obtener temarios:', error));
+
     }
 
-    
-    function obtenerProfesores() {
+    function obtenerProfesores(){
+
         fetch('http://localhost:4000/profesor')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(profesor => {
-                    const div = document.createElement('div');
-                    div.textContent = `Nombre: ${profesor.nombre}, Correo: ${profesor.correo}, Teléfono: ${profesor.telefono}`;
-                    profesoresList.appendChild(div);
-                });
-            })
-            .catch(error => console.error('Error al obtener profesores:', error));
+        .then(response => response.json())
+        .then(profesores => {
+            const profesorList = document.getElementById('profesores-list');
+            profesorList.innerHTML = profesores.map(profesor => `
+                <tr>
+                    <td>${profesor.cedula}</td>
+                    <td>${profesor.nombre}</td>
+                    <th>${profesor.correo}</th>
+                    <td>${profesor.telefono}</td>
+                </tr>
+            `).join('');
+        })
+        .catch(error => console.error('Error al obtener profesores:', error));
+
     }
 
     if (inscripcionForm) {
@@ -94,8 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cursoList.innerHTML = cursos.map(curso => `
                 <tr>
                     <td>${curso.nombre}</td>
-                    <td>${curso.descripcion}</td>
+                    <td>${curso.horario}</td>
+                    <th>${curso.cupo}</th>
                     <td>${curso.duracion}</td>
+                    <th>${curso.idTemario}</th>
+                    <th>${curso.idProfesor}</th>
+                    <th>${curso.costo}</th>
+                    <th>${curso.idCategoria}</th>
                 </tr>
             `).join('');
         })
